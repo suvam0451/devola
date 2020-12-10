@@ -6,6 +6,7 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"io/ioutil"
 	"os"
+	"text/tabwriter"
 )
 
 type AuthType int
@@ -94,6 +95,15 @@ func EditConfig(data VpsConfigData, key string) int {
 	return -1
 }
 
+// ListServers: Lists servers based on config file
+func ListServers() {
+	data := GetConfig()
+	w := tabwriter.NewWriter(os.Stdout, 1, 2, 1, ' ', 0)
+	for idx, ele := range data {
+		fmt.Fprintln(w, fmt.Sprintf("%d\t|%s\t|%s\t\t\t", idx, ele.ID, ele.IP))
+	}
+}
+
 func AddServer(ip string, id string){
 	data := GetConfig()
 	extra := VPS{
@@ -107,5 +117,3 @@ func AddServer(ip string, id string){
 	EditConfig(data, id)
 	SetConfig(data)
 }
-
-// func register(ip string, )
