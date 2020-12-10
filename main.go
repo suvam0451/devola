@@ -2,7 +2,7 @@
 package main
 
 import (
-	"devola/cmd"
+	"github.com/suvam0451/devola/cmd"
 )
 
 func main() {

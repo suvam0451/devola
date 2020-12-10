@@ -2,7 +2,7 @@
 package cmd
 
 import (
-	"devola/collection"
+	"github.com/suvam0451/devola/collection"
 	"fmt"
 
 	"github.com/spf13/cobra"

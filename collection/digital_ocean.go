@@ -96,12 +96,14 @@ func EditConfig(data VpsConfigData, key string) int {
 }
 
 // ListServers: Lists servers based on config file
-func ListServers() {
+func ListServers() int {
 	data := GetConfig()
 	w := tabwriter.NewWriter(os.Stdout, 1, 2, 1, ' ', 0)
 	for idx, ele := range data {
 		fmt.Fprintln(w, fmt.Sprintf("%d\t|%s\t|%s\t\t\t", idx, ele.ID, ele.IP))
+		fmt.Println(fmt.Sprintf("%d\t| %s\t| %s\t\t\t", idx, ele.ID, ele.IP))
 	}
+	return len(data)
 }
 
 func AddServer(ip string, id string){
