@@ -41,6 +41,6 @@ to quickly create a Cobra application.`,
 
 func init() {
 	serverCmd.AddCommand(serverConnectCmd)
-	serverConnectCmd.Flags().String("annotation", "a", "ID of the server to connect to")
+	// serverConnectCmd.Flags().String("annotation", "a", "ID of the server to connect to")
 	serverConnectCmd.Flags().StringVarP(&annotation, "annotation", "a", "", "The ID of server to connect to")
 }
